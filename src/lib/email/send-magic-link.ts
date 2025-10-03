@@ -3,7 +3,6 @@ import { getResend } from './email-client';
 
 export const sendMagicLinkEmail = async ({
   email,
-  token,
   url,
 }: {
   email: string;

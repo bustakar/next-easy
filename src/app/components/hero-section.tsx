@@ -223,6 +223,7 @@ export default function HeroSection() {
                   className="mx-auto h-5 w-fit dark:invert"
                   src="https://html.tailus.io/blocks/customers/nvidia.svg"
                   alt="Nvidia Logo"
+                  width="20"
                   height="20"
                 />
               </div>
@@ -232,6 +233,7 @@ export default function HeroSection() {
                   className="mx-auto h-4 w-fit dark:invert"
                   src="https://html.tailus.io/blocks/customers/column.svg"
                   alt="Column Logo"
+                  width="16"
                   height="16"
                 />
               </div>
@@ -240,6 +242,7 @@ export default function HeroSection() {
                   className="mx-auto h-4 w-fit dark:invert"
                   src="https://html.tailus.io/blocks/customers/github.svg"
                   alt="GitHub Logo"
+                  width="16"
                   height="16"
                 />
               </div>
@@ -248,6 +251,7 @@ export default function HeroSection() {
                   className="mx-auto h-5 w-fit dark:invert"
                   src="https://html.tailus.io/blocks/customers/nike.svg"
                   alt="Nike Logo"
+                  width="20"
                   height="20"
                 />
               </div>
@@ -256,6 +260,7 @@ export default function HeroSection() {
                   className="mx-auto h-5 w-fit dark:invert"
                   src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg"
                   alt="Lemon Squeezy Logo"
+                  width="20"
                   height="20"
                 />
               </div>
@@ -264,6 +269,7 @@ export default function HeroSection() {
                   className="mx-auto h-4 w-fit dark:invert"
                   src="https://html.tailus.io/blocks/customers/laravel.svg"
                   alt="Laravel Logo"
+                  width="16"
                   height="16"
                 />
               </div>
@@ -272,6 +278,7 @@ export default function HeroSection() {
                   className="mx-auto h-7 w-fit dark:invert"
                   src="https://html.tailus.io/blocks/customers/lilly.svg"
                   alt="Lilly Logo"
+                  width="28"
                   height="28"
                 />
               </div>
@@ -281,6 +288,7 @@ export default function HeroSection() {
                   className="mx-auto h-6 w-fit dark:invert"
                   src="https://html.tailus.io/blocks/customers/openai.svg"
                   alt="OpenAI Logo"
+                  width="24"
                   height="24"
                 />
               </div>

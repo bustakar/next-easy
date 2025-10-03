@@ -17,13 +17,19 @@ import {
 } from '@/components/ui/sidebar';
 import { Skeleton } from '@/components/ui/skeleton';
 import { authClient, useSession } from '@/lib/auth/auth-client';
-import { ChevronsUpDown, LogOut } from 'lucide-react';
+import { ChevronsUpDown, CreditCard, LogOut } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export function NavUser() {
   const { isMobile } = useSidebar();
   const router = useRouter();
   const { data: session, isPending } = useSession();
+
+  const openBilling = async () => {
+    await authClient.subscription.billingPortal({
+      returnUrl: '/dashboard',
+    });
+  };
 
   const logout = async () => {
     await authClient.signOut({
@@ -98,6 +104,11 @@ export function NavUser() {
                 </div>
               </div>
             </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => openBilling()}>
+              <CreditCard />
+              Billing
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => logout()}>
               <LogOut />

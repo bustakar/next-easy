@@ -10,9 +10,12 @@
     "db:generate": "npx drizzle-kit generate",
     "db:migrate": "npx tsx src/db/migrate.ts",
     "db:push": "npx drizzle-kit push",
-    "db:studio": "npx drizzle-kit studio"
+    "db:studio": "npx drizzle-kit studio",
+    "auth:generate": "npx @better-auth/cli generate --config src/lib/auth/auth.ts --output src/db/auth-schema.ts",
+    "stripe:listen": "stripe listen --forward-to localhost:3000/api/auth/stripe/webhook"
   },
   "dependencies": {
+    "@better-auth/stripe": "^1.3.25",
     "@hookform/resolvers": "^5.2.2",
     "@paralleldrive/cuid2": "^2.2.2",
     "@radix-ui/react-avatar": "^1.1.10",
@@ -39,6 +42,7 @@
     "react-email": "^4.2.12",
     "react-hook-form": "^7.63.0",
     "resend": "^6.1.2",
+    "stripe": "^18.5.0",
     "tailwind-merge": "^3.3.1",
     "zod": "^4.1.11"
   },
