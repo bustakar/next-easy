@@ -1,5 +1,6 @@
 'use client';
 import { Logo } from '@/app/components/logo';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -87,7 +88,8 @@ export const HeroHeader = () => {
                   ))}
                 </ul>
               </div>
-              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+              <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-end sm:gap-4 md:w-fit">
+                <ThemeToggle />
                 <Button asChild variant="default" size="sm">
                   <Link href="/login">
                     <span>Login</span>
