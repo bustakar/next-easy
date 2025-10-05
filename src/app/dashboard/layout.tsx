@@ -1,4 +1,5 @@
 import { AppSidebar } from '@/app/dashboard/components/app-sidebar';
+import PricingPaywall from '@/app/dashboard/components/pricing-paywall';
 import { ThemeToggle } from '@/components/theme-toggle';
 import {
   Breadcrumb,
@@ -8,6 +9,14 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import {
   SidebarInset,
@@ -23,12 +32,23 @@ export default async function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const h = await headers();
   const session = await auth.api.getSession({
-    headers: await headers(),
+    headers: h,
   });
 
   if (!session) {
     redirect('/login');
+  }
+
+  const subscriptions = await auth.api.listActiveSubscriptions({
+    headers: h,
+  });
+
+  let paywallDialogOpen = false;
+
+  if (!subscriptions || subscriptions.length === 0) {
+    paywallDialogOpen = true;
   }
 
   return (
@@ -65,6 +85,19 @@ export default async function DashboardLayout({
           <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
         </div>
       </SidebarInset>
+      <Dialog open={paywallDialogOpen}>
+        <DialogContent showCloseButton={false} className="min-w-fit">
+          <DialogHeader>
+            <DialogTitle>Upgrade Required</DialogTitle>
+            <DialogDescription>
+              You need an active subscription to access this feature.
+            </DialogDescription>
+          </DialogHeader>
+          <ScrollArea className="h-[600px] flex-grow">
+            <PricingPaywall />
+          </ScrollArea>
+        </DialogContent>
+      </Dialog>
     </SidebarProvider>
   );
 }

@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/card';
 import { stripePlans } from '@/lib/payment/stripe-plans';
 import { Check } from 'lucide-react';
-import { ButtonCheckout } from './button-checkout';
+import { ButtonCheckout } from '../../components/pricing/button-checkout';
 
 export default function Pricing() {
   const isPopularPlan = (name: string) => {

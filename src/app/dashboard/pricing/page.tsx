@@ -1,4 +1,4 @@
-import Pricing from '@/components/pricing/pricing-table';
+import Pricing from '@/app/components/marketing-pricing-table';
 
 export default function DashboardPage() {
   return (

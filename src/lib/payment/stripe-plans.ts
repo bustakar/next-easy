@@ -13,6 +13,7 @@ export const stripePlans = [
       '5GB Cloud Storage',
       'Email and Chat Support',
     ],
+    isPopular: false,
   },
   {
     name: 'Pro',
@@ -37,11 +38,13 @@ export const stripePlans = [
       'Monthly Product Updates',
       'Standard Security Features',
     ],
+    isPopular: true,
   },
   {
     name: 'Lifetime',
     priceId: 'price_1SE5hQPkExVIvWhfJTyZfhbZ',
     price: 119.99,
     descriotions: ['Everything in Pro Plan', 'Lifetime access to all features'],
+    isPopular: false,
   },
 ];

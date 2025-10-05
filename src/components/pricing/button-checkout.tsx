@@ -10,9 +10,11 @@ import { Skeleton } from '../ui/skeleton';
 export function ButtonCheckout({
   plan,
   variant,
+  title = 'Get started for free',
 }: {
   plan: string;
   variant?: 'default' | 'outline';
+  title?: string;
 }) {
   const { data: session, isPending } = useSession();
   const [isLoading, setIsLoading] = useState(false);
@@ -33,8 +35,8 @@ export function ButtonCheckout({
         plan,
         subscriptionId,
         successUrl: '/dashboard',
-        cancelUrl: '/pricing',
-        returnUrl: '/pricing',
+        cancelUrl: '/dashboard',
+        returnUrl: '/dashboard',
       });
 
       if (result.data?.url) {
@@ -68,7 +70,7 @@ export function ButtonCheckout({
           Processing...
         </>
       ) : (
-        'Get started for free'
+        title
       )}
     </Button>
   );
