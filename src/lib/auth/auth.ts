@@ -3,7 +3,7 @@ import { stripe } from '@better-auth/stripe';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { nextCookies } from 'better-auth/next-js';
-import { magicLink } from 'better-auth/plugins';
+import { admin, magicLink } from 'better-auth/plugins';
 import { sendMagicLinkEmail } from '../email/send-magic-link';
 import { getStripeClient } from '../payment/stripe-client';
 import { stripePlans } from '../payment/stripe-plans';
@@ -13,12 +13,13 @@ export const auth = betterAuth({
     provider: 'pg',
   }),
   plugins: [
-    nextCookies(),
+    admin(),
     magicLink({
       sendMagicLink: async ({ email, token, url }) => {
         await sendMagicLinkEmail({ email, token, url });
       },
     }),
+    nextCookies(),
     stripe({
       stripeClient: getStripeClient(),
       stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
